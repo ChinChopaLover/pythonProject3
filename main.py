@@ -1,45 +1,43 @@
-Rome_number = input("Enter rome number: ")
+def roman_to_int(num: str) -> int:
 
-Arabic_number = []
+    arabic_number = []
 
-Rome_equals_arabic = {
-    'I': 1,
-    'i': 1,
-    'V': 5,
-    'v': 5,
-    'X': 10,
-    'x': 10,
-    'L': 50,
-    'l': 50,
-    'C': 100,
-    'c': 100,
-    'D': 500,
-    'd': 500,
-    'm': 1000,
-    'M': 1000,
-}
+    rome_equals_arabic = {
+        'I': 1,
+        'i': 1,
+        'V': 5,
+        'v': 5,
+        'X': 10,
+        'x': 10,
+        'L': 50,
+        'l': 50,
+        'C': 100,
+        'c': 100,
+        'D': 500,
+        'd': 500,
+        'm': 1000,
+        'M': 1000,
+    }
 
-for iteration in range(len(Rome_number)):
+    for iteration in range(len(num)):
 
-    if Rome_number[iteration] in Rome_equals_arabic.keys():
+        if num[iteration] in rome_equals_arabic.keys():
 
-        Arabic_number.append(Rome_equals_arabic[Rome_number[iteration]])
+            arabic_number.append(rome_equals_arabic[num[iteration]])
 
-    else:
+        else:
 
-        print("You enter wrong number")
+            return -1
 
-for i in range(len(Arabic_number) - 1):
+    for i in range(len(arabic_number) - 1):
 
-    if Arabic_number[i] < (Arabic_number[i+1]):
+        if arabic_number[i] < (arabic_number[i+1]):
 
-        Arabic_number[i] = - Arabic_number[i]
+            arabic_number[i] = - arabic_number[i]
 
-        i += 1
+            i += 1
 
-print("Eqal arabic number is:",sum(Arabic_number))
-
-
+    return sum(arabic_number)
 
 
-
+print(roman_to_int(num=input("Enter rome number: ")))
