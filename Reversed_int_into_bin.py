@@ -1,0 +1,11 @@
+a = int(input('Enter your number: '))
+a = bin(a)
+a = str(a)
+a = list(a)
+a.pop(0)
+a.pop(0)
+a.reverse()
+a = ''.join(a)
+b = int(a, 2)
+print(b)
+
